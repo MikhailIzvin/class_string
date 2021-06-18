@@ -77,22 +77,21 @@ std::ostream &my::operator<<(std::ostream &out, const my::line &assingment) {
 
 std::istream &my::operator>>(std::istream &in, my::line &assignment) {
     char ch;
+    int buff = 1024;
     int i = 0;
-    assignment.str = new char[assignment.length];
+    assignment.str = new char[buff];
     while (in.get(ch)) {
         if (i == assignment.length - 1)
             assignment.resize();
         if (ch == '\n'){
             assignment.length = size(assignment.str);
+            assignment.str[assignment.length] = '\0';
             return in;
         }
         assignment.str[i] = ch;
         i++;
     }
-}
-
-void my::line::get() {
-    std::cout << str;
+    return in;
 }
 
 void my::line::resize() {
@@ -100,9 +99,9 @@ void my::line::resize() {
     for (int i=0;i<length;i++)
         copy_str[i]=str[i];
     delete [] str;
-    length += 1;
+    length *= 2;
     str=new char[length];
-    for (int i=0;i<length-1;i++)
+    for (int i=0;i<length/2;i++)
         str[i]=copy_str[i];
     delete [] copy_str;
 }

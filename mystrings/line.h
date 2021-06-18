@@ -22,7 +22,6 @@ namespace my {
         line(line &&assignment);
         char &operator [](int i);
         void resize();
-        void get();
         int get_length();
         ~line();
     };
