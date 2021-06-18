@@ -10,10 +10,6 @@ static int size(const char *a){
     return ptr - a;
 }
 
-void my::line::get_string() {
-    std::cout << str;
-}
-
 int my::line::get_length() {
     return length;
 }
@@ -74,6 +70,39 @@ char &my::line::operator[](int i) {
     return str[i];
 }
 
-my::line my::line::get() {
-    std::cin >> str;
+std::ostream &my::operator<<(std::ostream &out, const my::line &assingment) {
+    out << assingment.str;
+    return out;
+}
+
+std::istream &my::operator>>(std::istream &in, my::line &assignment) {
+    char ch;
+    int i = 0;
+    assignment.str = new char[assignment.length];
+    while (in.get(ch)) {
+        if (i == assignment.length - 1)
+            assignment.resize();
+        if (ch == '\n'){
+            assignment.length = size(assignment.str);
+            return in;
+        }
+        assignment.str[i] = ch;
+        i++;
+    }
+}
+
+void my::line::get() {
+    std::cout << str;
+}
+
+void my::line::resize() {
+    char* copy_str=new char[length];
+    for (int i=0;i<length;i++)
+        copy_str[i]=str[i];
+    delete [] str;
+    length += 1;
+    str=new char[length];
+    for (int i=0;i<length-1;i++)
+        str[i]=copy_str[i];
+    delete [] copy_str;
 }

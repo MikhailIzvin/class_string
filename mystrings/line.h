@@ -13,14 +13,16 @@ namespace my {
         char *str;
     public:
         line() {str = nullptr; length = 0;}
+        friend std::ostream& operator<< (std::ostream& out, const line &assignment);
+        friend std::istream& operator>> (std::istream& in, line &assignment);
         line &operator = (const line &assignment);
         line operator + (const line &assignment);
         line(const char *string);
         line(const line &assignment);
         line(line &&assignment);
-        line get();
         char &operator [](int i);
-        void get_string();
+        void resize();
+        void get();
         int get_length();
         ~line();
     };
