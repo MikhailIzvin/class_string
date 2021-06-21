@@ -17,6 +17,8 @@ namespace my {
         friend std::istream& operator>> (std::istream& in, line &assignment);
         line &operator = (const line &assignment);
         line operator + (const line &assignment);
+        bool operator == (const line &assignment);
+        bool operator != (const line &assignment);
         line(const char *string);
         line(const line &assignment);
         line(line &&assignment);

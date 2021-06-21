@@ -84,6 +84,7 @@ std::istream &my::operator>>(std::istream &in, my::line &assignment) {
         if (i == assignment.length - 1)
             assignment.resize();
         if (ch == '\n'){
+            assignment.str[i] = '\0';
             assignment.length = size(assignment.str);
             assignment.str[assignment.length] = '\0';
             return in;
@@ -104,4 +105,18 @@ void my::line::resize() {
     for (int i=0;i<length/2;i++)
         str[i]=copy_str[i];
     delete [] copy_str;
+}
+
+bool my::line::operator==(const my::line &assignment) {
+    if (length != assignment.length)
+        return false;
+    for (int i = 0; i < length; i++){
+        if (str[i] != assignment.str[i])
+            return false;
+    }
+    return true;
+}
+
+bool my::line::operator!=(const my::line &assignment) {
+    return !(operator==(assignment));
 }
