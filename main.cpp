@@ -56,7 +56,7 @@ my::line min(my::line &object_1, my::line &object_2){
 bool compare(my::line &object_1, my::line &object_2){
     my::line min_object = min(object_1, object_2);
     for (int i = 0; i < min_object.get_length(); i++){
-        if (object_1[i] < object_2[i])
+        if (object_1[i] > object_2[i])
             return true;
         if (object_1[i] == object_2[i])
             continue;
@@ -69,7 +69,7 @@ void sort(my::line &lin, std::vector<my::line> &vector){
     my::line line = lin + " ";
     my::line string;
     char *str = new char[line.get_length()];
-    int star_value = -2;
+    int star_value = -1;
     int j = 0;
     int i = 0;
     for (; i < line.get_length();){
@@ -80,6 +80,7 @@ void sort(my::line &lin, std::vector<my::line> &vector){
             vector.emplace_back(string);
             memset(str, 0, line.get_length());
             j = star_value;
+            i++;
         }
         j++;
     }

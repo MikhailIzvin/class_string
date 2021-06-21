@@ -86,7 +86,6 @@ std::istream &my::operator>>(std::istream &in, my::line &assignment) {
         if (ch == '\n'){
             assignment.str[i] = '\0';
             assignment.length = size(assignment.str);
-            assignment.str[assignment.length] = '\0';
             return in;
         }
         assignment.str[i] = ch;
