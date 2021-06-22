@@ -1,0 +1,2 @@
+Here's a program that takes a list of strings and outputs that list in reverse lexicographic order.
+An executable file has been prepared for the "gcc" compiler, since not everyone has Cmake.
