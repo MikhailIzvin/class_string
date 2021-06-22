@@ -1,7 +1,3 @@
-//
-// Created by Sveto Copy on 22.06.2021.
-//
-
 #ifndef STRINGS_SOME_FUNCTIONS_H
 #define STRINGS_SOME_FUNCTIONS_H
 #include "line.h"

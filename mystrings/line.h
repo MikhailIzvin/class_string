@@ -1,7 +1,3 @@
-//
-// Created by Sveto Copy on 16.06.2021.
-//
-
 #ifndef STRINGS_LINE_H
 #define STRINGS_LINE_H
 #include <iostream>

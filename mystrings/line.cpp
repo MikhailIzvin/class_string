@@ -1,7 +1,3 @@
-//
-// Created by Sveto Copy on 16.06.2021.
-//
-
 #include "line.h"
 static int size(const char *a){
     const char *ptr = a;
