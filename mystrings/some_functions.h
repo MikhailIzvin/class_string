@@ -6,6 +6,7 @@
 #define STRINGS_SOME_FUNCTIONS_H
 #include "line.h"
 
+//the exceptions that the functions rely on
 struct chars{
     char space = ' ';
     char comma = ',';
@@ -24,6 +25,7 @@ struct chars{
     char minus = '-';
 };
 
+//function that checks for the presence of an element in a string
 bool check(char a){
     chars exception;
     if (a == exception.bole ||
@@ -46,6 +48,7 @@ bool check(char a){
         return false;
 }
 
+//find the minimum string in two lines
 my::line min(my::line &object_1, my::line &object_2){
     int length_1 = object_1.get_length();
     int length_2 = object_2.get_length();
@@ -56,6 +59,7 @@ my::line min(my::line &object_1, my::line &object_2){
     return object_2;
 }
 
+//comparator for std::sort
 bool compare(my::line &object_1, my::line &object_2){
     my::line min_object = min(object_1, object_2);
     for (int i = 0; i < min_object.get_length(); i++){
@@ -68,6 +72,7 @@ bool compare(my::line &object_1, my::line &object_2){
     return false;
 }
 
+//splitting a string into words according to a given condition
 void token(my::line &lin, std::vector<my::line> &vector){
     my::line line = lin + " ";
     my::line string;

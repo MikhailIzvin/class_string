@@ -23,6 +23,7 @@ namespace my {
         line(const line &assignment);
         line(line &&assignment);
         char &operator [](int i);
+        //function  for istream to
         void resize();
         int get_length();
         ~line();
